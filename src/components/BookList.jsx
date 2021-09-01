@@ -27,7 +27,7 @@ const  BookList = ({books}) => {
                                         type="text"
                                         placeholder="Search here"
                                         value={searchQuery}
-                                        onChange={setSearchQuery(searchQuery)}
+                                        onChange={(e)=> setSearchQuery(e.target.value)}
                                     />
                                 </Form.Group>
                             </Col>
@@ -39,8 +39,8 @@ const  BookList = ({books}) => {
                                         <SingleBook
                                             book={b}
                                             selectedBook={selectedBook}
-                                            changeSelectedBook={asin => setSelectedBook(
-                                                selectedBook.asin
+                                            changeSelectedBook={() => setSelectedBook(
+                                                selectedBook
                                             )} />
                                     </Col>
                                 ))

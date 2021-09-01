@@ -5,7 +5,7 @@ import Loading from './Loading'
 import Error from './Error'
 import { useEffect } from 'react'
 
-const CommentArea = () => {
+const CommentArea = (props) => {
 
     // state = {
     //     comments: [], // comments will go here
@@ -19,7 +19,7 @@ const CommentArea = () => {
     useEffect(() => {
         const fetchBooks = async () =>{
             try {
-                let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.asin, {
+                let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + props.asin, {
                     headers: {
                         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI3OWY5NTgxNmI1YjAwMTU5NDA3NDAiLCJpYXQiOjE2MjI2NDY2NzcsImV4cCI6MTYyMzg1NjI3N30.y-rBwB5WAQOWBvWrLlAgTQUrbGulxd2M6cWH3VLyGLw'
                     }
@@ -52,7 +52,7 @@ const CommentArea = () => {
             <div>
                 {isLoading && <Loading />}
                 {isError && <Error />}
-                <AddComment asin={this.props.asin} />
+                <AddComment asin={props.asin} />
                 <CommentList commentsToShow={comments} />
             </div>
         )
